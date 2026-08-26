@@ -4,7 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>York Jazz Fest — 1–4 October 2026</title>
-<meta name="description" content="Every gig at York Jazz Fest 2026. Four days, four venues, one city. Tickets on sale now.">
+<meta name="description" content="Every gig at York Jazz Fest 2026. Four days, six venues, one city. Tickets on sale now.">
+
+<!-- Social preview: what shows when the link is shared on WhatsApp,
+     Instagram, Facebook, X, Slack, or picked up by press. -->
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="York Jazz Fest">
+<meta property="og:title"       content="York Jazz Fest — 1–4 October 2026">
+<meta property="og:description" content="Four days, six venues, one city. 21 gigs across York, from free entry sessions to the Sunday Main Stage finale.">
+<meta property="og:url"         content="https://www.yorkjazzfestival.com/">
+<meta property="og:image"       content="https://www.yorkjazzfestival.com/social.jpg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="York Jazz Fest — 1–4 October 2026">
+<meta name="twitter:description" content="Four days, six venues, one city. 21 gigs across York.">
+<meta name="twitter:image"       content="https://www.yorkjazzfestival.com/social.jpg">
+<meta name="theme-color" content="#3C3835">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -273,7 +291,7 @@
 
   <header>
     <div class="hero">
-      <img class="poster" id="poster" src="poster.jpg" alt="York Jazz Fest 2026 poster">
+      <img class="poster" id="poster" alt="York Jazz Fest 2026 poster">
       <div>
         <div class="eyebrow" id="eyebrow"></div>
         <h1 id="title"></h1>
@@ -307,9 +325,9 @@
   </div>
 </div>
 
-<script src="events.js"></script>
+
 <script>
-(function () {
+function bootSite() {
   "use strict";
 
   var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -340,6 +358,15 @@
     return DAYS[d.getDay()] + " " + d.getDate() + " " + MONTHS[d.getMonth()];
   }
 
+  /* Stamp asset URLs so a replaced photo (same filename) isn't served
+     from cache. The stamp only changes when events.js is republished,
+     so images still cache normally between updates. */
+  var ASSET_V = (typeof CONFIG !== "undefined" && CONFIG.assetVersion) || "1";
+  function asset(path){
+    if (!path || /^https?:/i.test(path)) return path;
+    return path + (path.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V;
+  }
+
   function ticketLink(ev){
     if (!ev.ticketUrl) return "";
     var sep = ev.ticketUrl.indexOf("?") === -1 ? "?" : "&";
@@ -359,7 +386,7 @@
   document.getElementById("intro").textContent = CONFIG.intro;
   document.getElementById("pull").textContent = CONFIG.pullQuote || "";
   document.getElementById("promoter").href = CONFIG.promoterUrl;
-  if (CONFIG.poster) document.getElementById("poster").src = CONFIG.poster;
+  if (CONFIG.poster) document.getElementById("poster").src = asset(CONFIG.poster);
 
   var keyEl = document.getElementById("key");
   Object.keys(VENUES).forEach(function(k){
@@ -442,7 +469,7 @@
     lastFocus = document.activeElement;
 
     if (ev.photo) {
-      visual.innerHTML = '<img class="panel-photo" src="' + esc(ev.photo) +
+      visual.innerHTML = '<img class="panel-photo" src="' + esc(asset(ev.photo)) +
                          '" alt="' + esc(ev.act) + '">';
     } else {
       var initials = ev.act.split(/\s+/).slice(0,2)
@@ -511,6 +538,22 @@
   document.addEventListener("keydown", function(e){
     if (e.key === "Escape" && overlay.classList.contains("open")) closePanel();
   });
+}
+
+/* Load the listings with a cache-buster so an update is live immediately for
+   everyone, including people who've visited before. Without this, browsers
+   serve a stale events.js and the site looks like it never updated. */
+(function () {
+  var s = document.createElement("script");
+  s.src = "events.js?cb=" + Date.now();
+  s.onload = function () { bootSite(); };
+  s.onerror = function () {
+    document.getElementById("listings").innerHTML =
+      '<p style="padding:40px 0;color:#B3AE9E">Couldn\'t load the listings. ' +
+      'Please refresh, or see our <a style="color:#609ECE" ' +
+      'href="https://www.seetickets.com/promoter/yorkjazzfest/32617">See Tickets page</a>.</p>';
+  };
+  document.head.appendChild(s);
 })();
 </script>
 </body>
