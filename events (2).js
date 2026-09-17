@@ -1,0 +1,315 @@
+/* ==========================================================================
+   YORK JAZZ FEST — SITE DATA
+   This is the ONLY file you need to edit. Never touch index.html.
+
+   assetVersion is a cache-buster. It changes on every update so that a photo
+   you replace actually shows up for people who've visited before.
+   ========================================================================== */
+
+const CONFIG = {
+  "festivalName": "York Jazz Fest",
+  "dates": "Thu 1 – Sun 4 October 2026",
+  "city": "Four days. Six venues. One city.",
+  "trackingSource": "WEBSITE",
+  "poster": "poster.jpg",
+  "intro": "York Jazz Fest is a welcoming new festival celebrating jazz in all its forms — bringing together classic sounds, contemporary energy, great venues and live music lovers across York.",
+  "pullQuote": "Jazz is not one sound, one age, one room or one crowd.",
+  "promoterUrl": "https://www.seetickets.com/promoter/yorkjazzfest/32617",
+  "assetVersion": "1789674509074"
+};
+
+const VENUES = {
+  "young-thugs": {
+    "name": "Young Thugs Studio",
+    "colour": "#F546A7"
+  },
+  "arts-barge": {
+    "name": "York Arts Barge",
+    "colour": "#609ECE"
+  },
+  "winning-post": {
+    "name": "The Winning Post",
+    "colour": "#E68F3A"
+  },
+  "main-stage": {
+    "name": "Bishopthorpe Rd Finale",
+    "colour": "#3DA13D"
+  },
+  "angel": {
+    "name": "Angel On The Green",
+    "colour": "#AB7D4C"
+  },
+  "phoenix": {
+    "name": "The Phoenix",
+    "colour": "#EDB210"
+  }
+};
+
+const EVENTS = [
+
+  /* ---------- THURSDAY 1 OCTOBER ---------- */
+  {
+    date: "2026-10-01", start: "18:00",
+    act: "Balanço Malandro",
+    venue: "young-thugs",
+    price: 6,
+    blurb: "Led by Argentinian saxophonist Martín Berger, Balanço Malandro is an all-star ensemble bringing together some of the finest musicians from the Leeds jazz and world music scenes. The band features acclaimed Pete Rosser (ORB Trio) on accordion, Tom McEwen on guitar, and Brendan Bache on drums.\n\nDrawing on the rich traditions of Brazilian choro and samba, Balanço Malandro performs music by masters such as Jacob do Bandolim, Pixinguinha, Djavan and João Bosco, alongside modern works by Hermeto Pascoal, Eduardo Neves and Hamilton de Holanda.",
+    artistUrl: "https://martinberger.bandcamp.com/",
+    photo: "balanco-malandro.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-balanco-malandro-young-thugs-studio-01-10/young-thugs-studio/3707038",
+    onSale: true,
+  },
+  {
+    date: "2026-10-01", start: "19:00", end: "20:15",
+    act: "Harrison & Morrison Duet",
+    venue: "angel",
+    free: true,
+    blurb: "",
+    artistUrl: "",
+    photo: "",
+  },
+  {
+    date: "2026-10-01", start: "20:00", end: "22:30",
+    act: "Brendan Duffy Band",
+    venue: "phoenix",
+    free: true,
+    blurb: "Brendan Duffy is Leeds’s favourite tenor sax players, music educator and all round good guy. He has led the Leeds Youth Jazz Rock Orchestra for several years.",
+    artistUrl: "",
+    photo: "brendan-duffy-band.jpg",
+  },
+  {
+    date: "2026-10-01", start: "20:30",
+    act: "Alligator Gumbo",
+    venue: "arts-barge",
+    price: 10,
+    blurb: "A seven-piece playing jazz from the hey-day of the New Orleans swing era — in particular the roaring 20s, when music was raw and largely improvised, melodies and solos happening all at once. Over ten years together and firm favourites on the British jazz scene, with a good-natured mix of foot-stomping rhythms, toe-tapping tunes and raucous singalongs.",
+    artistUrl: "https://www.alligatorgumbo.co.uk",
+    photo: "alligator-gumbo.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-alligator-gumbo-arts-barge-01-10-26/the-arts-barge/3707037",
+    onSale: true,
+  },
+  {
+    date: "2026-10-01", start: "21:00", end: "22:15",
+    act: "The Shandog Swingers",
+    venue: "angel",
+    free: true,
+    blurb: "The Shandog Swingers bring the sound and spirit of New Orleans to York. Started by brothers Joe and Charlie Lancaster and Charlie’s wife Elita in 2026, they play the music you’d expect to hear walking down Frenchmen Street. They are joined by Al Morrison on guitar. Their influences include Kermit Ruffins, Fats Domino, Hot 8 Brass Band, Rebirth Brass Band, Tuba Skinny and Trombone Shorty.",
+    artistUrl: "https://www.instagram.com/reels/Db266H1s5dC/",
+    photo: "the-shandog-swingers.jpg",
+  },
+  {
+    date: "2026-10-01", start: "21:15",
+    act: "Lo Vu",
+    venue: "young-thugs",
+    price: 7,
+    blurb: "Lo Vu is the Leeds-based project of guitarist and producer Ben Haskins, bringing together some of the North’s finest musicians for a set of close-knit, collaborative jazz.",
+    artistUrl: "https://www.instagram.com/lo_vu_uk",
+    photo: "lo-vu.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-lo-vu-young-thugs-studio-01-10-26/young-thugs-studio/3707035",
+    onSale: true,
+  },
+
+  /* ---------- FRIDAY 2 OCTOBER ---------- */
+  {
+    date: "2026-10-02", start: "18:00", end: "19:10",
+    act: "DB Trio",
+    venue: "angel",
+    free: true,
+    blurb: "David Keighley (saxophones), Adrian Sander (bass guitar) and Ben Grant (drums). An innovative trio that blends jazz, rock and cinematic soundtracks into a distinctive and exciting musical experience.\n\nTheir repertoire combines original compositions with dynamic interpretations of jazz standards, alongside inventive reworkings of music by David Bowie, Nirvana and Björk. They have performed across the North East and Yorkshire, from major festivals and established jazz nights to rock clubs, earning a reputation for creative, energetic and genre-defying performances.",
+    artistUrl: "https://soundcloud.com/david-keighley-486654373/blind-blue",
+    photo: "db-trio.jpg",
+  },
+  {
+    date: "2026-10-02", start: "18:00",
+    act: "York Bargestra Big Band",
+    venue: "winning-post",
+    price: 3,
+    blurb: "",
+    artistUrl: "",
+    photo: "",
+    ticketUrl: "https://www.seetickets.com/event/yjf-york-bargestra-02-10-18-00/the-winning-post/3708007",
+    onSale: true,
+  },
+  {
+    date: "2026-10-02", start: "18:30",
+    act: "Danny Lowndes Hot Club",
+    venue: "arts-barge",
+    price: 5,
+    blurb: "",
+    artistUrl: "",
+    photo: "",
+    ticketUrl: "https://www.seetickets.com/event/yjf-danny-lowndes-hot-club-02-10-arts-barges/arts-barges/3708013",
+    onSale: true,
+  },
+  {
+    date: "2026-10-02", start: "19:00",
+    act: "Rivkala",
+    venue: "young-thugs",
+    price: 6,
+    blurb: "Showgirl, singer and storyteller. Rivkala is an award-winning multidisciplinary jazz/soul artist, vocalist, writer and bandleader, with TV features on BBC Look North and ITV Tyne Tees and national radio coverage across BBC Radio 3, JazzFM, Selector Radio and BBC Introducing.\n\nWithin the campy vessel of her larger-than-life cabaret bar, Crushed Velvet, Rivkala and her six-piece band blend jazz, soul, funk and klezmer into provocatively playful social commentary on gender, wealth inequality and mental health. Under the warm glow of her beloved lamp Lucille, they balance serious grooves with comedic theatricality.",
+    artistUrl: "",
+    photo: "",
+    ticketUrl: "https://www.seetickets.com/event/yjf-rivkala-quartet-02-10-young-thugs-studio/young-thugs-studio/3708800",
+    onSale: true,
+  },
+  {
+    date: "2026-10-02", start: "20:00",
+    act: "Stephen Swing Wilson",
+    venue: "winning-post",
+    price: 5,
+    blurb: "A tribute to the classics of Crooner Swing: such as Frank Sinatra, Dean Martin, Sammy Davis Jr and Bobby Darin.",
+    artistUrl: "",
+    photo: "stephen-wilson-swing.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-stephen-wilson-swing-winning-post-02-10/the-winning-post/3707041",
+    onSale: true,
+  },
+  {
+    date: "2026-10-02", start: "20:00", end: "22:30",
+    act: "Karl Mullen & Friends",
+    venue: "phoenix",
+    free: true,
+    blurb: "With over 30 years' experience as a full time musician, Karl is an extremely versatile, accomplished pianist, band leader and piano teacher. He is regularly seen in some of the most prestigious jazz venues in the North, and has performed and taught across the UK and worldwide.\n\nKarl has a constantly expanding memorised repertoire of hundreds of songs ranging from classical, to rock-pop, jazz, blues and boogie-woogie.",
+    artistUrl: "https://karlpiano.com/",
+    photo: "karl-mullen-and-friends.jpg",
+  },
+  {
+    date: "2026-10-02", start: "20:30",
+    act: "Alina Bzhezhinska: Whispers of Rain",
+    venue: "arts-barge",
+    price: 14,
+    blurb: "A solo harp and electronics set featuring music from her 2025 Tru Thoughts album with producer Tulshi. Performing alone, Bzhezhinska builds expansive, layered soundscapes in real time using loop pedals and a sampler, moving between spiritual jazz, ambient atmospheres and free improvisation — intimate and cinematic at once.\n\nCreator of HipHarpCollective, winners of the Parliamentary Jazz Award for Best Ensemble 2024, she has worked with Brian Jackson, Chaka Khan, Shabaka Hutchings and DJ Spinna.",
+    artistUrl: "https://www.hipharpcollective.com",
+    photo: "alina-bzhezhinska.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-alina-bzhezhinska-arts-barge-02-10/the-arts-barge/3707040",
+    onSale: true,
+  },
+  {
+    date: "2026-10-02", start: "21:00", end: "22:15",
+    act: "Mike Conliffe Trio",
+    venue: "angel",
+    free: true,
+    blurb: "Mike has founded his trio which includes Christian Topman (Bass) and Chris Sykes (drums). They met in York 8 years ago and had great chemistry from the start.\n\nThe trio are going to play music based on TV themes, past and present. This is a fun project which started after a conversation about how music has changed and developed.\n\nThis performance will have lots of personality: come and see a band that know how to have fun.",
+    artistUrl: "",
+    photo: "mike-cunliffe-trio.jpg",
+  },
+  {
+    date: "2026-10-02", start: "21:15",
+    act: "Afrodesia",
+    venue: "young-thugs",
+    price: 7,
+    blurb: "Leeds based Afrobeat-Jazz fusion band Afrodesia has played across many dance floors across the UK. Drawing upon influences from across Africa such as Afrobeat, Highlife, Juju, Kwela, Kwasa kwasa and combining it with jazz. The rhythmic melodies of Afrodesia are sure to make you dance.",
+    artistUrl: "https://www.instagram.com/afro.desia",
+    photo: "afrodesia.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-afrodesia-young-thugs-studio-02-10/young-thugs-studio/3707039",
+    onSale: true,
+  },
+
+  /* ---------- SATURDAY 3 OCTOBER ---------- */
+  {
+    date: "2026-10-03", start: "18:00",
+    act: "Flowerden",
+    venue: "winning-post",
+    price: 5,
+    blurb: "Flowerden are a quintet from York playing original, infectiously catchy jazz/pop fusion.\n\nEntirely instrumental, every tune is jam packed with riffs, textures and rhythms that you'll be humming for days.\n\nBex, Nik, Tim, Tobias and Tom bring eclectic tastes and backgrounds from hard rock to the films of Studio Ghibli. They mix it with the contemporary jazz sensibilities of Ezra Collective, Kokoroko and Nubya Garcia to create something unique and wonderful. It's unequivocally jazz, with pop and rock undertones.\n\nFormed in 2024, Flowerden's first gig was support to Mercury-nominated corto.alto. They released their first EP in 2025.\n\nFlowerden are Bex (sax), Nik (bass), Tim (guitar), Tobias (drums) and Tom (keys).",
+    artistUrl: "https://www.flowerden.band",
+    photo: "flowerden.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-flowerden-winning-post-03-10/the-winning-post/3707045",
+    onSale: true,
+  },
+  {
+    date: "2026-10-03", start: "18:00", end: "19:10",
+    act: "Borgia",
+    venue: "angel",
+    free: true,
+    blurb: "Supercharged jazz-punk from York, UK, blending open-ended jazz improvisation with raw punk energy.",
+    artistUrl: "https://borgia.bandcamp.com/track/caravan",
+    photo: "borgia.jpg",
+  },
+  {
+    date: "2026-10-03", start: "18:30",
+    act: "Emma Foulds Quintet",
+    venue: "arts-barge",
+    price: 6,
+    blurb: "Emma Foulds is a saxophonist originally from Tadcaster now based in London. Her music takes inspiration from artists including Django Bates, Joe Lovano and Linda May Han Oh. Having debuted her quintet in May 2026 she has been writing new material that highlights the tenor sax and vocal front line. Her music aims to highlight the rich variety of textures that can be created by improvised music.",
+    artistUrl: "",
+    photo: "emma-foulds.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-emma-foulds-arts-barge-03-10/the-arts-barge/3707047",
+    onSale: true,
+  },
+  {
+    date: "2026-10-03", start: "19:00",
+    act: "SwanNek",
+    venue: "young-thugs",
+    price: 11,
+    blurb: "SwanNek is a boundary-pushing contemporary jazz collective from Newcastle upon Tyne, renowned for crafting music that celebrates the people and places closest to their hearts.\n\nSwanNek draw deeply from their own experiences, weaving personal stories into a dynamic and powerfully emotive sound: a fusion that reflects the rich and diverse musical identity of their hometown.\n\nTheir emotive, innovative and welcoming live shows have drawn praise from Radio 3’s Soweto Kinch and BBC Introducing’s Shakk (“a collective of musical superheroes”), consistently attracting an eclectic and ever-growing fanbase.\n\n\"Innovative. Dynamic. A combustion of musical talent.\" — Glasshouse ICM",
+    artistUrl: "https://www.instagram.com/swan_nek/?hl=en-gb",
+    photo: "swannek.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-swan-nek-young-thugs-studio-03-10/young-thugs-studio/3707044",
+    onSale: true,
+  },
+  {
+    date: "2026-10-03", start: "20:30",
+    act: "Al Morrison Quartet",
+    venue: "winning-post",
+    price: 6,
+    blurb: "Al Morrison started playing guitar at 15 and won a scholarship to study at Leeds Conservatoire, later furthering studies in Jazz Guitar at Trinity College London.\n\nAl runs his own band, The Blues Experience, and plays with the New York Brass Band at many festivals and gigs. He is also the regular bandleader for the Scarborough Jazz Festival resident trio.\n\nAl is joined by the brilliant pairing of Chris Sykes on drums and José Canha on double bass.",
+    artistUrl: "https://www.instagram.com/al_morrisonguitar/",
+    photo: "al-morrison-quartet.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-al-morrison-quartet-winning-post-03-10/the-winning-post/3707043",
+    onSale: true,
+  },
+  {
+    date: "2026-10-03", start: "20:30",
+    act: "Olivia Cuttill Quintet",
+    venue: "arts-barge",
+    price: 13,
+    blurb: "Trumpeter, composer and lyricist Olivia Cuttill leads her quintet — Issey Chivers on vocals, Tom Harris on piano, Josh Vadiveloo on bass and Miles Pillinger on drums. A Leeds Conservatoire graduate and winner of the 2024 Peter Whittingham Jazz Award, she draws on New Orleans and the Great American Songbook, with storytelling songs, swinging solos and beautiful blues.",
+    artistUrl: "https://oliviacuttillmusic.wixsite.com/oliviacuttill",
+    photo: "olivia-cuttill-quintet.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yjf-olivia-cuttill-quintet-arts-barge-03-10/the-arts-barge/3707046",
+    onSale: true,
+  },
+  {
+    date: "2026-10-03", start: "20:30", end: "22:30",
+    act: "Mutant Jazz DJ",
+    venue: "angel",
+    free: true,
+    blurb: "Liverpool's Mutant Jazz DJs are Copious Notes and JabJazz. These two vinyl-only jazz-spectrum DJs met 42 years ago. They play regularly at Buyers Club in Liverpool, Nelson’s in Hebden Bridge and all the Mutant Jazz events in the North West, promoting contemporary grassroots live jazz.\n\nExpect to hear Afro Jazz, Soul Jazz, Progressive Jazz, Ska, Acid Jazz, Be-Bop, Disco and Swing.",
+    artistUrl: "",
+    photo: "",
+  },
+  {
+    date: "2026-10-03", start: "21:00",
+    act: "Lovedancin' DJ",
+    venue: "young-thugs",
+    price: 3,
+    blurb: "",
+    artistUrl: "",
+    photo: "",
+    ticketUrl: "https://www.seetickets.com/event/yjf-lovedancin-dj-03-10-young-thugs-studio/young-thugs-studio/3708011",
+    onSale: true,
+  },
+
+  /* ---------- SUNDAY 4 OCTOBER ---------- */
+  {
+    date: "2026-10-04", start: "12:00",
+    act: "Main Stage — all day",
+    venue: "main-stage",
+    price: 25,
+    blurb: "The festival closes with a full day on the Main Stage at Bishopthorpe Road Car Park, 12:00 until 19:00.\n\nYorkJazzFest Orchestra — A one-off orchestra assembled specially for the festival, playing together for this day only.\n\nVipertime — Aggro-jazz from Leeds. Saxophone, bass and two drum kits, pulling together jazz, afrobeat, post-punk and dub. Born out of Hyde Park house parties, they've since had airplay on 6 Music and Radio 3, and shout-outs from Iggy Pop and Jamie Cullum. \n\nBig Bamboo — Jazz and hot dance music from Trinidad, Brazil, the French Caribbean and Jamaica. Bandleader Richard Ormrod grew up with the lyrical sound of early Caribbean music and has played it for thirty-five years. A tour through the first half of the 20th century and an irresistible gumbo of soca, calypso, merengue, choro and beguine.\n\nFergus Quill Sextet — Double bassist, bandleader and composer, winner of the Musicians' Company Tina May Jazz Award, and founder of the 25-piece DIY jazz/noise band Ferg's Imaginary Big Band. He arranges and performs with the National Youth Jazz Orchestra and has played with Hermeto Pascoal and Orphy Robinson. \n\nDennis Rollins' FUNKY-FUNK! — An electrifying, hard-hitting six-piece delivering fat angular bass-lines and sumptuous horn melodies. Rollins MBE has played with Courtney Pine, Maceo Parker, Jamiroquai, The Brand New Heavies and Blur, and won a BBC Jazz Award for Best Band with Badbone & Co. In his words: \"a seriously funky band with an infectious sound. It makes you wanna move!\" \n\n£25. Under 14s £12.50. Children under 12 go free with a paying adult.\n",
+    artistUrl: "",
+    photo: "main-stage-all-day.jpg",
+    ticketUrl: "https://www.seetickets.com/event/yorkjazzfest-2026/bishopthorpe-road-car-park/3702261",
+    onSale: true,
+  },
+  {
+    date: "2026-10-04", start: "20:00", end: "22:30",
+    act: "Ian Chalk",
+    venue: "phoenix",
+    free: true,
+    blurb: "Rounding off the festival with a free show at The Phoenix! Based in York, Ian is a jazz trumpet player performing throughout the UK and a well-known jazz educator, leading on York Music Forum. ",
+    artistUrl: "https://www.ianchalkmusic.com/",
+    photo: "ian-chalk.jpg",
+  },
+
+];
