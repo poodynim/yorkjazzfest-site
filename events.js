@@ -19,27 +19,39 @@ const CONFIG = {
 const VENUES = {
   "young-thugs": {
     "name": "Young Thugs Studio",
-    "colour": "#F546A7"
+    "colour": "#F546A7",
+    "address": "12 Ovington Terrace, York YO23 1DJ",
+    "maps": "https://maps.google.com/?cid=14285820196386977242"
   },
   "arts-barge": {
     "name": "York Arts Barge",
-    "colour": "#609ECE"
+    "colour": "#609ECE",
+    "address": "Foss Basin Moorings, Tower St, York YO10 4AB",
+    "maps": "https://maps.google.com/?cid=13869111730268822669"
   },
   "winning-post": {
     "name": "The Winning Post",
-    "colour": "#E68F3A"
+    "colour": "#E68F3A",
+    "address": "127–129 Bishopthorpe Rd, York YO23 1NZ",
+    "maps": "https://maps.google.com/?cid=6331187906289147024"
   },
   "main-stage": {
     "name": "Bishopthorpe Rd Finale",
-    "colour": "#3DA13D"
+    "colour": "#3DA13D",
+    "address": "Bishopthorpe Rd Car Park, York YO23 1NA",
+    "maps": "https://maps.google.com/?cid=2341399546940215342"
   },
   "angel": {
     "name": "Angel On The Green",
-    "colour": "#AB7D4C"
+    "colour": "#AB7D4C",
+    "address": "2–4 Bishopthorpe Rd, York YO23 1JJ",
+    "maps": "https://maps.google.com/?cid=10845742937056803470"
   },
   "phoenix": {
     "name": "The Phoenix",
-    "colour": "#EDB210"
+    "colour": "#EDB210",
+    "address": "75 George St, York YO1 9PT",
+    "maps": "https://maps.google.com/?cid=9304651116487806535"
   }
 };
 

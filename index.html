@@ -235,6 +235,20 @@
     margin-bottom:16px;
   }
   .panel-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .venue-line{font-size:14px;color:var(--cream-dim);margin:-10px 0 20px}
+  .venue-line a{color:var(--blue);text-decoration:none;border-bottom:1px solid currentColor}
+  .venue-line a:hover{color:var(--yellow)}
+  .venues{margin:44px 0 0;padding-top:28px;border-top:1px solid var(--rule)}
+  .venues h2{font-family:var(--serif);font-size:26px;margin-bottom:4px}
+  .venues p.sub{color:var(--cream-dim);font-size:14px;margin-bottom:18px}
+  .venue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .venue-card{border:1px solid var(--rule);border-radius:4px;padding:14px 16px}
+  .venue-card .vname{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;padding:4px 9px;border-radius:2px;color:#241F1B;margin-bottom:9px}
+  .venue-card .vaddr{font-size:14px;line-height:1.45;margin-bottom:8px}
+  .venue-card a{font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;
+    border-bottom:1px solid currentColor}
+  .venue-card a:hover{color:var(--yellow)}
   .fact{font-size:13px;font-weight:600;padding:5px 11px;border:1px solid var(--rule);color:var(--cream)}
   .panel-blurb{font-size:17px;white-space:pre-line;margin-bottom:22px}
   .panel-blurb.empty{color:var(--cream-dim)}
@@ -311,6 +325,12 @@
 
   <main id="listings"></main>
 
+  <section class="venues" id="venues">
+    <h2>The venues</h2>
+    <p class="sub">Everything is within a 17-minute walk, most of it much closer. The Angel and the Sunday car park are two minutes apart; the Arts Barge and The Phoenix three.</p>
+    <div class="venue-grid" id="venue-grid"></div>
+  </section>
+
   <footer>
     <p>All tickets sold through See Tickets. <a id="promoter" href="#">See every event on our See Tickets page →</a></p>
   </footer>
@@ -324,6 +344,7 @@
     <div class="panel-body">
       <h2 id="panel-title"></h2>
       <div class="panel-meta" id="panel-meta"></div>
+      <p class="venue-line" id="panel-address"></p>
       <p class="panel-blurb" id="panel-blurb"></p>
       <div id="panel-artist"></div>
       <div id="panel-buy"></div>
@@ -462,6 +483,29 @@ function bootSite() {
     listings.appendChild(sec);
   });
 
+  /* ---------- Venue list ---------- */
+  var grid = document.getElementById("venue-grid");
+  if (grid) {
+    var counts = {};
+    EVENTS.forEach(function(ev){ counts[ev.venue] = (counts[ev.venue] || 0) + 1; });
+    Object.keys(VENUES)
+      .filter(function(k){ return counts[k]; })
+      .sort(function(a,b){ return counts[b] - counts[a]; })
+      .forEach(function(k){
+        var v = VENUES[k];
+        var n = counts[k];
+        var card = document.createElement("div");
+        card.className = "venue-card";
+        card.innerHTML =
+          '<span class="vname" style="background:' + esc(v.colour) + '">' + esc(v.name) + "</span>" +
+          '<div class="vaddr">' + esc(v.address || "") + "</div>" +
+          '<div style="color:var(--cream-dim);font-size:13px;margin-bottom:8px">' +
+            n + (n === 1 ? " show" : " shows") + "</div>" +
+          (v.maps ? '<a href="' + esc(v.maps) + '" target="_blank" rel="noopener">Open in Maps \u2192</a>' : "");
+        grid.appendChild(card);
+      });
+  }
+
   /* ---------- Detail panel ---------- */
   var overlay  = document.getElementById("overlay");
   var visual   = document.getElementById("panel-visual");
@@ -502,6 +546,16 @@ function bootSite() {
     metaEl.innerHTML = facts.map(function(f){
       return '<span class="fact">' + esc(f) + "</span>";
     }).join("");
+
+    var addrEl = document.getElementById("panel-address");
+    if (v.address) {
+      addrEl.innerHTML = esc(v.address) +
+        (v.maps ? ' \u00b7 <a href="' + esc(v.maps) +
+                  '" target="_blank" rel="noopener">Open in Maps \u2192</a>' : "");
+      addrEl.style.display = "";
+    } else {
+      addrEl.style.display = "none";
+    }
 
     if (ev.blurb) {
       blurbEl.textContent = ev.blurb;
