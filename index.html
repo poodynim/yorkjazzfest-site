@@ -183,6 +183,12 @@
     font-size:11px;font-weight:700;letter-spacing:.1em;
     text-transform:uppercase;color:var(--cream-dim);
   }
+  .row.cancelled .act{text-decoration:line-through;opacity:.55}
+  .row.cancelled .chip{opacity:.5}
+  .cancelled-tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    background:#E0533A;color:#fff;padding:5px 11px;border-radius:3px;white-space:nowrap}
+  .panel-cancelled{background:#E0533A;color:#fff;font-weight:700;padding:12px 16px;
+    border-radius:4px;margin-bottom:16px;letter-spacing:.03em}
   .free-tag{
     font-size:12px;font-weight:700;letter-spacing:.1em;
     text-transform:uppercase;color:var(--ink);
@@ -427,7 +433,7 @@ function bootSite() {
     day.items.forEach(function(ev){
       var v = venueOf(ev);
       var btn = document.createElement("button");
-      btn.className = "row";
+      btn.className = "row" + (ev.cancelled ? " cancelled" : "");
       btn.type = "button";
       btn.innerHTML =
         '<span class="time">' + esc(ev.start) + "</span>" +
@@ -440,13 +446,15 @@ function bootSite() {
                 : "Doors " + esc(doorsFor(ev.start))) + "</span>" +
           "</span>" +
         "</span>" +
-        (ev.free
-          ? '<span class="free-tag">Free</span>'
-          : '<span class="' + (ev.onSale && ev.ticketUrl ? "price" : "soon") + '">' +
-            (ev.onSale && ev.ticketUrl
-              ? esc(priceLabel(ev) || "Tickets")
-              : "Coming soon") +
-            "</span>");
+        (ev.cancelled
+          ? '<span class="cancelled-tag">Cancelled</span>'
+          : ev.free
+            ? '<span class="free-tag">Free</span>'
+            : '<span class="' + (ev.onSale && ev.ticketUrl ? "price" : "soon") + '">' +
+              (ev.onSale && ev.ticketUrl
+                ? esc(priceLabel(ev) || "Tickets")
+                : "Coming soon") +
+              "</span>");
       btn.addEventListener("click", function(){ openPanel(ev); });
       sec.appendChild(btn);
     });
@@ -509,7 +517,10 @@ function bootSite() {
       : "";
 
     var link = ticketLink(ev);
-    if (ev.free) {
+    if (ev.cancelled) {
+      buyEl.innerHTML = '<div class="panel-cancelled">This show has been cancelled</div>' +
+                        '<p class="buy-note">Sorry \u2014 the rest of the festival runs as planned.</p>';
+    } else if (ev.free) {
       buyEl.innerHTML = '<span class="free-note">Free entry</span>' +
                         '<p class="buy-note">No ticket needed \u2014 just turn up.</p>';
     } else if (ev.onSale && link) {
