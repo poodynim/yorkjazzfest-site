@@ -13,15 +13,15 @@ const CONFIG = {
   "intro": "York Jazz Fest is a welcoming new festival celebrating jazz in all its forms — bringing together classic sounds, contemporary energy, great venues and live music lovers across York.",
   "pullQuote": "Jazz is not one sound, one age, one room or one crowd.",
   "promoterUrl": "https://www.seetickets.com/promoter/yorkjazzfest/32617",
-  "assetVersion": "1789746852053"
+  "assetVersion": "1790800000000"
 };
 
 const VENUES = {
-  "young-thugs": {
-    "name": "Young Thugs Studio",
+  "knavesmire": {
+    "name": "The Knavesmire",
     "colour": "#F546A7",
-    "address": "12 Ovington Terrace, York YO23 1DJ",
-    "maps": "https://maps.google.com/?cid=14285820196386977242"
+    "address": "Albemarle Rd, York YO23 1ER",
+    "maps": "https://www.google.com/maps/search/?api=1&query=The+Knavesmire+Albemarle+Road+York+YO23+1ER"
   },
   "arts-barge": {
     "name": "York Arts Barge",
@@ -61,7 +61,8 @@ const EVENTS = [
   {
     date: "2026-10-01", start: "18:00",
     act: "Balanço Malandro",
-    venue: "young-thugs",
+    venue: "knavesmire",
+    change: { venueFrom: "Young Thugs Studio" },
     price: 6,
     blurb: "Led by Argentinian saxophonist Martín Berger, Balanço Malandro is an all-star ensemble bringing together some of the finest musicians from the Leeds jazz and world music scenes. The band features acclaimed Pete Rosser (ORB Trio) on accordion, Tom McEwen on guitar, and Brendan Bache on drums.\n\nDrawing on the rich traditions of Brazilian choro and samba, Balanço Malandro performs music by masters such as Jacob do Bandolim, Pixinguinha, Djavan and João Bosco, alongside modern works by Hermeto Pascoal, Eduardo Neves and Hamilton de Holanda.",
     artistUrl: "https://martinberger.bandcamp.com/",
@@ -110,7 +111,8 @@ const EVENTS = [
   {
     date: "2026-10-01", start: "21:15",
     act: "Lo Vu",
-    venue: "young-thugs",
+    venue: "knavesmire",
+    change: { venueFrom: "Young Thugs Studio" },
     price: 7,
     blurb: "Lo Vu is the Leeds-based project of guitarist and producer Ben Haskins, bringing together some of the North’s finest musicians for a set of close-knit, collaborative jazz.",
     artistUrl: "https://www.instagram.com/lo_vu_uk",
@@ -155,7 +157,8 @@ const EVENTS = [
   {
     date: "2026-10-02", start: "19:00",
     act: "Rivkala",
-    venue: "young-thugs",
+    venue: "knavesmire",
+    change: { venueFrom: "Young Thugs Studio" },
     price: 6,
     blurb: "Showgirl, singer and storyteller. Rivkala is an award-winning multidisciplinary jazz/soul artist, vocalist, writer and bandleader, with TV features on BBC Look North and ITV Tyne Tees and national radio coverage across BBC Radio 3, JazzFM, Selector Radio and BBC Introducing.\n\nWithin the campy vessel of her larger-than-life cabaret bar, Crushed Velvet, Rivkala and her six-piece band blend jazz, soul, funk and klezmer into provocatively playful social commentary on gender, wealth inequality and mental health. Under the warm glow of her beloved lamp Lucille, they balance serious grooves with comedic theatricality.",
     artistUrl: "",
@@ -206,7 +209,8 @@ const EVENTS = [
   {
     date: "2026-10-02", start: "21:15",
     act: "Afrodesia",
-    venue: "young-thugs",
+    venue: "knavesmire",
+    change: { venueFrom: "Young Thugs Studio" },
     price: 7,
     blurb: "Leeds based Afrobeat-Jazz fusion band Afrodesia has played across many dance floors across the UK. Drawing upon influences from across Africa such as Afrobeat, Highlife, Juju, Kwela, Kwasa kwasa and combining it with jazz. The rhythmic melodies of Afrodesia are sure to make you dance.",
     artistUrl: "https://www.instagram.com/afro.desia",
@@ -228,9 +232,10 @@ const EVENTS = [
     onSale: true,
   },
   {
-    date: "2026-10-03", start: "21:00", end: "22:15",
+    date: "2026-10-03", start: "20:00",
     act: "Borgia",
     venue: "angel",
+    change: { timeFrom: "21:00–22:15" },
     free: true,
     blurb: "Supercharged jazz-punk from York, UK, blending open-ended jazz improvisation with raw punk energy.",
     artistUrl: "https://borgia.bandcamp.com/track/caravan",
@@ -250,7 +255,8 @@ const EVENTS = [
   {
     date: "2026-10-03", start: "19:00",
     act: "SwanNek",
-    venue: "young-thugs",
+    venue: "winning-post",
+    change: { venueFrom: "Young Thugs Studio" },
     price: 11,
     blurb: "SwanNek is a boundary-pushing contemporary jazz collective from Newcastle upon Tyne, renowned for crafting music that celebrates the people and places closest to their hearts.\n\nSwanNek draw deeply from their own experiences, weaving personal stories into a dynamic and powerfully emotive sound: a fusion that reflects the rich and diverse musical identity of their hometown.\n\nTheir emotive, innovative and welcoming live shows have drawn praise from Radio 3’s Soweto Kinch and BBC Introducing’s Shakk (“a collective of musical superheroes”), consistently attracting an eclectic and ever-growing fanbase.\n\n\"Innovative. Dynamic. A combustion of musical talent.\" — Glasshouse ICM",
     artistUrl: "https://www.instagram.com/swan_nek/?hl=en-gb",
@@ -281,18 +287,20 @@ const EVENTS = [
     onSale: true,
   },
   {
-    date: "2026-10-03", start: "18:00", end: "19:10",
+    date: "2026-10-03", start: "17:30", end: "19:30",
     act: "Mutant Jazz DJ",
     venue: "angel",
+    change: { timeFrom: "18:00–19:10" },
     free: true,
     blurb: "Liverpool's Mutant Jazz DJs are Copious Notes and JabJazz. These two vinyl-only jazz-spectrum DJs met 42 years ago. They play regularly at Buyers Club in Liverpool, Nelson’s in Hebden Bridge and all the Mutant Jazz events in the North West, promoting contemporary grassroots live jazz.\n\nExpect to hear Afro Jazz, Soul Jazz, Progressive Jazz, Ska, Acid Jazz, Be-Bop, Disco and Swing.",
     artistUrl: "",
     photo: "mutant-jazz-dj.jpg",
   },
   {
-    date: "2026-10-03", start: "21:00",
+    date: "2026-10-03", start: "21:00", end: "23:00",
     act: "Lovedancin' DJ",
-    venue: "young-thugs",
+    venue: "angel",
+    change: { venueFrom: "Young Thugs Studio" },
     price: 3,
     blurb: "Lovedancin’ are DJ duo Enrico and Dan Summer, two friends who met at the legendary Love International Festival and bonded over their shared love of music.\nBorn in a basement in York, they now host parties and events between York and London, playing everything from Jazz, Soul, Balearic, Brazilian and Latin to Electronic and everything funky in between. Always playing on vinyl, Lovedancin’ sets are packed with warm grooves, unheard gems and tracks that move both the body and heart.\nGood music, good people and above all, love. Lovedancin’ are sure to get your feet moving!",
     artistUrl: "",

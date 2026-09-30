@@ -187,6 +187,11 @@
   .row.cancelled .chip{opacity:.5}
   .cancelled-tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     background:#E0533A;color:#fff;padding:5px 11px;border-radius:3px;white-space:nowrap}
+  .change-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    background:#E68F3A;color:#241F1B;padding:3px 10px;border-radius:2px;white-space:nowrap}
+  .panel-change{background:#E68F3A;color:#241F1B;font-weight:700;padding:12px 16px;
+    border-radius:4px;margin-bottom:16px;line-height:1.4}
+  .panel-change span{display:block;font-weight:600}
   .panel-cancelled{background:#E0533A;color:#fff;font-weight:700;padding:12px 16px;
     border-radius:4px;margin-bottom:16px;letter-spacing:.03em}
   .free-tag{
@@ -343,6 +348,7 @@
     <div id="panel-visual"></div>
     <div class="panel-body">
       <h2 id="panel-title"></h2>
+      <div id="panel-change"></div>
       <div class="panel-meta" id="panel-meta"></div>
       <p class="venue-line" id="panel-address"></p>
       <p class="panel-blurb" id="panel-blurb"></p>
@@ -398,6 +404,23 @@ function bootSite() {
     if (!ev.ticketUrl) return "";
     var sep = ev.ticketUrl.indexOf("?") === -1 ? "?" : "&";
     return ev.ticketUrl + sep + "src=" + encodeURIComponent(CONFIG.trackingSource);
+  }
+
+  /* Change notices: ev.change = { venueFrom: "Old venue", timeFrom: "18:00–19:10" } */
+  function changeLabel(ev){
+    var c = ev.change;
+    if (!c) return "";
+    if (c.venueFrom && c.timeFrom) return "Venue & time change";
+    return c.venueFrom ? "Venue change" : "Time change";
+  }
+
+  function changeNote(ev){
+    var c = ev.change, v = venueOf(ev), lines = [];
+    if (!c) return "";
+    if (c.venueFrom) lines.push("Now at " + v.name + " (was " + c.venueFrom + ")");
+    if (c.timeFrom) lines.push("Now " + ev.start + (ev.end ? "–" + ev.end : "") +
+                               " (was " + c.timeFrom + ")");
+    return lines;
   }
 
   function priceLabel(ev){
@@ -462,6 +485,7 @@ function bootSite() {
           '<span class="act">' + esc(ev.act) + "</span>" +
           '<span class="meta">' +
             '<span class="chip" style="background:' + esc(v.colour) + '">' + esc(v.name) + "</span>" +
+            (ev.change ? '<span class="change-tag">' + esc(changeLabel(ev)) + "</span>" : "") +
             "<span>" + (ev.free
                 ? (ev.end ? "Until " + esc(ev.end) : "No ticket needed")
                 : "Doors " + esc(doorsFor(ev.start))) + "</span>" +
@@ -532,13 +556,22 @@ function bootSite() {
 
     titleEl.textContent = ev.act;
 
+    var changeEl = document.getElementById("panel-change");
+    if (ev.change) {
+      changeEl.innerHTML = '<div class="panel-change">' + esc(changeLabel(ev)) +
+        changeNote(ev).map(function(l){ return "<span>" + esc(l) + "</span>"; }).join("") +
+        "</div>";
+    } else {
+      changeEl.innerHTML = "";
+    }
+
     var facts = [longDate(ev.date)];
     if (ev.free) {
       facts.push(ev.end ? ev.start + "\u2013" + ev.end : ev.start);
       facts.push(v.name);
       facts.push("Free entry");
     } else {
-      facts.push(ev.start + " (doors " + doorsFor(ev.start) + ")");
+      facts.push(ev.start + (ev.end ? "–" + ev.end : "") + " (doors " + doorsFor(ev.start) + ")");
       facts.push(v.name);
       var p = priceLabel(ev);
       if (p) facts.push(p + " + booking fee");
